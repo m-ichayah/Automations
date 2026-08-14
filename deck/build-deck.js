@@ -154,6 +154,32 @@ function card(s, o) {
   });
 }
 
+/**
+ * Trim surrounding transparent/white margin from a logo and cache the result
+ * next to it. Returns the trimmed path, or the original if sharp is missing or
+ * the trim fails — the deck must still build without the optional dependency.
+ */
+function trimmedLogo(srcPath) {
+  const out = path.join(path.dirname(srcPath), ".logo-trimmed.png");
+  try {
+    if (fs.existsSync(out) && fs.statSync(out).mtimeMs >= fs.statSync(srcPath).mtimeMs) {
+      return out;
+    }
+    const { execFileSync } = require("child_process");
+    execFileSync(process.execPath, [
+      "-e",
+      `require('sharp')(${JSON.stringify(srcPath)})
+         .trim({ threshold: 5 })
+         .png()
+         .toFile(${JSON.stringify(out)})
+         .then(() => process.exit(0), () => process.exit(1));`,
+    ], { stdio: "ignore" });
+    return fs.existsSync(out) ? out : srcPath;
+  } catch {
+    return srcPath;
+  }
+}
+
 const riskColor = (n) => (n >= 15 ? RED : n >= 10 ? AMBER : n >= 5 ? BLUE : GREEN);
 const riskBand = (n) => (n >= 15 ? "CRITICAL" : n >= 10 ? "HIGH" : n >= 5 ? "MEDIUM" : "LOW");
 
@@ -164,21 +190,35 @@ const riskBand = (n) => (n >= 15 ? "CRITICAL" : n >= 10 ? "HIGH" : n >= 5 ? "MED
   const s = darkSlide();
 
   const logoDir = path.join(ROOT, "assets");
-  const found = ["dangote-logo.png", "dangote-logo.jpg", "dangote-logo.jpeg"]
+  const src = ["dangote-logo.png", "dangote-logo.jpg", "dangote-logo.jpeg"]
     .map((f) => path.join(logoDir, f))
     .find((p) => fs.existsSync(p));
 
-  const LX = M, LY = 0.62, LW = 2.5, LH = 1.05;
+  // Logo files usually ship with transparent or white margin baked in, which
+  // would make the mark render small inside its plate. Trim it to the actual
+  // content so the box below is filled predictably whatever file is supplied.
+  const found = src ? trimmedLogo(src) : null;
+
+  // The mark is navy on transparent, so on a navy slide it needs a white plate
+  // behind it. Plate is sized to the logo's 3:2 aspect plus even padding.
+  const LX = M, LY = 0.62, LW = 2.0, LH = 0.98, PAD_X = 0.2, PAD_Y = 0.17;
   if (found) {
-    s.addImage({ path: found, x: LX, y: LY, w: LW, h: LH, sizing: { type: "contain", w: LW, h: LH } });
+    s.addShape(pres.ShapeType.roundRect, {
+      x: LX, y: LY, w: LW + PAD_X * 2, h: LH + PAD_Y * 2, rectRadius: 0.05,
+      fill: { color: PAPER }, line: { type: "none" },
+    });
+    s.addImage({
+      path: found, x: LX + PAD_X, y: LY + PAD_Y, w: LW, h: LH,
+      sizing: { type: "contain", w: LW, h: LH },
+    });
   } else {
     s.addShape(pres.ShapeType.roundRect, {
-      x: LX, y: LY, w: LW, h: LH, rectRadius: 0.06,
+      x: LX, y: LY, w: LW + PAD_X * 2, h: LH + PAD_Y * 2, rectRadius: 0.05,
       fill: { color: INK2 }, line: { color: "45688C", width: 1, dashType: "dash" },
     });
     s.addText("DANGOTE LOGO\nplace assets/dangote-logo.png", {
-      x: LX, y: LY, w: LW, h: LH, align: "center", valign: "middle",
-      fontFace: BODY, fontSize: 9.5, color: "8FB0CE", margin: 0, lineSpacing: 13,
+      x: LX, y: LY, w: LW + PAD_X * 2, h: LH + PAD_Y * 2, align: "center", valign: "middle",
+      fontFace: BODY, fontSize: 9, color: "8FB0CE", margin: 0, lineSpacing: 12,
     });
   }
 
@@ -1717,5 +1757,30 @@ sectionDivider(
 }
 
 // ── write ──────────────────────────────────────────────────────────────────
+// pptxgenjs stores its zip entries uncompressed, which leaves the deck ~6x
+// larger than it needs to be. Repack with deflate — same package, same bytes
+// per part, just compressed.
+function repack(file) {
+  try {
+    const { execFileSync } = require("child_process");
+    execFileSync("python3", ["-c", `
+import zipfile, os, sys
+src = sys.argv[1]
+tmp = src + ".tmp"
+zin = zipfile.ZipFile(src)
+with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as zout:
+    for i in zin.infolist():
+        zout.writestr(i.filename, zin.read(i.filename))
+zin.close()
+os.replace(tmp, src)
+`, file], { stdio: "ignore" });
+  } catch {
+    /* compression is an optimisation, not a requirement */
+  }
+}
+
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
-pres.writeFile({ fileName: OUT }).then(() => console.log("wrote " + OUT));
+pres.writeFile({ fileName: OUT }).then(() => {
+  repack(OUT);
+  console.log("wrote " + OUT + " (" + Math.round(fs.statSync(OUT).size / 1024) + " KB)");
+});

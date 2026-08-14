@@ -1,4 +1,5 @@
 node_modules/
 package-lock.json
-dist/*.pdf
+# dist/*.pdf is a deliverable and is committed
 dist/slide-*.jpg
+assets/.logo-trimmed.png
