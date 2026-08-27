@@ -87,14 +87,15 @@ function badge(p, s, x, y, d, label, fill, color) {
 }
 
 /** Footer strip carrying the deck identity and slide number. */
-function foot(s, left, n) {
+function foot(s, left, n, onDark) {
   s.addText(left, {
     x: M, y: 6.86, w: CW - 1, h: 0.3,
-    fontFace: BODY, fontSize: 12, color: "9AA8B8", margin: 0, valign: "middle",
+    fontFace: BODY, fontSize: 12, color: onDark ? "7FA8CE" : "9AA8B8", margin: 0, valign: "middle",
   });
   s.addText(String(n), {
     x: W - M - 0.6, y: 6.86, w: 0.6, h: 0.3,
-    fontFace: BODY, fontSize: 12, bold: true, color: BLUE, align: "right", margin: 0, valign: "middle",
+    fontFace: BODY, fontSize: 12, bold: true, color: onDark ? BLUE2 : BLUE,
+    align: "right", margin: 0, valign: "middle",
   });
 }
 
@@ -300,6 +301,7 @@ function titleSlide(p, eyebrow, title, sub, tag) {
       x: M, y: 6.28, w: CW, h: 0.5,
       fontFace: HEAD, fontSize: 19, bold: true, color: BLUE2, margin: 0, valign: "middle",
     });
+    foot(s, FOOT, 4, true);
     s.addNotes(
       "This is the slide the room will remember. Give it time and say the last line slowly.\n" +
       "Scope 1 + 2 = 1.68 Mt = 8.8% of 19.2 Mt. Category 11 alone = 16.7 Mt = 87%.\n" +
@@ -547,6 +549,7 @@ function titleSlide(p, eyebrow, title, sub, tag) {
       x: M + 0.3, y: 6.06, w: CW - 0.6, h: 0.62,
       fontFace: HEAD, fontSize: 18, bold: true, color: WHITE, margin: 0, valign: "middle",
     });
+    foot(s, FOOT, 4);
     s.addNotes(
       "Twelve of roughly forty. The full set with formulas is in the brief.\n" +
       "Flag the injury rate basis: 200,000 hours is US practice, much of the industry uses 1,000,000 —\n" +
