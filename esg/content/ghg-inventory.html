@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Greenhouse Gas Inventory for a Refinery</title>
+<link rel="stylesheet" href="../theme.css">
+</head><body>
+
+<!-- ==================== 1 COVER ==================== -->
+<section class="page cover"><div class="cover-inner">
+  <div class="eyebrow">Question 1 &middot; Technical brief</div>
+  <h1>Preparing a Greenhouse<br>Gas Inventory for a<br>Typical Refinery</h1>
+  <div class="rule"></div>
+  <div class="sub">What to count, where to draw the line, how to measure it, and
+  what to do with the answer &mdash; worked end to end on a 120,000&nbsp;barrel-per-day
+  Nigerian refinery.</div>
+
+  <div class="cover-contents">
+    <div><span>01</span>Why you must do this</div>
+    <div><span>02</span>The language, in full</div>
+    <div><span>03</span>Drawing the boundary</div>
+    <div><span>04</span>The gases and the maths</div>
+    <div><span>05</span>Scope 1: where it comes from</div>
+    <div><span>06</span>How each source is measured</div>
+    <div><span>07</span>Scope 2 and Scope 3</div>
+    <div><span>08</span>The worked inventory</div>
+    <div><span>09</span>Data quality and assurance</div>
+    <div><span>10</span>What an operator does next</div>
+  </div>
+
+  <div class="meta">
+    <b>Group C (29 Members)</b><br>
+    Abu Omosomi Joy &middot; Iniovosa Michayah Olamide<br>
+    Abdulkadir Garba Yusuf Aondoakaa &middot; Doochivir Christopher
+  </div>
+</div></section>
+
+<!-- ==================== 2 WHY ==================== -->
+<section class="page">
+  <h2><span class="n">01</span>Why you must do this</h2>
+  <p class="deck">A greenhouse gas inventory is not a voluntary environmental gesture. In Nigeria it is a statutory filing.</p>
+
+  <p>A <em class="term">greenhouse gas (GHG)</em> inventory is a structured count of every
+  tonne of climate-warming gas an organisation is responsible for over a defined
+  period &mdash; normally one calendar year. It answers three questions in order:
+  <strong>what do we emit, from where, and how do we know?</strong></p>
+
+  <h3>The Nigerian legal duty comes first</h3>
+  <p>The <strong>Climate Change Act 2021</strong> is Nigeria's framework climate law. Two
+  provisions bind a refinery directly:</p>
+  <ul>
+    <li><strong>Section 24</strong> &mdash; a public or private entity with <strong>50 or more
+    employees</strong> must designate a <em class="term">Climate Change Officer</em> and submit
+    <strong>annual reports on its carbon emissions and reduction efforts</strong>. Every
+    operating refinery in Nigeria clears that threshold many times over.</li>
+    <li><strong>Sections 19&ndash;23</strong> &mdash; the <em class="term">National Council on Climate
+    Change (NCCC)</em> sets a rolling <em class="term">carbon budget</em> and an action plan that
+    entities are expected to align with.</li>
+  </ul>
+
+  <h3>What sits behind the law</h3>
+  <table>
+    <thead><tr><th style="width:34%">Driver</th><th>What it requires of a refinery</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Nigeria's NDC (2021)</td><td>The <em class="term">Nationally Determined Contribution</em> under the Paris Agreement: <strong>20% below business-as-usual by 2030 unconditionally, 47% conditional on international support</strong>, and <strong>net zero by 2060</strong>. Includes ending routine gas flaring by 2030.</td></tr>
+      <tr><td class="tag">NMDPRA</td><td>The <em class="term">Nigerian Midstream and Downstream Petroleum Regulatory Authority</em>, established by the <strong>Petroleum Industry Act 2021</strong>, licenses and regulates refining. Environmental and emissions conditions attach to the licence.</td></tr>
+      <tr><td class="tag">NESREA</td><td>The <em class="term">National Environmental Standards and Regulations Enforcement Agency</em> sets and enforces ambient and point-source air quality limits.</td></tr>
+      <tr><td class="tag">NGX / FRC</td><td>The <em class="term">Nigerian Exchange</em> Sustainability Disclosure Guidelines, and the <em class="term">Financial Reporting Council of Nigeria</em>'s adoption of <strong>IFRS S2 Climate-related Disclosures</strong>, both require reported emissions from listed and significant entities.</td></tr>
+      <tr><td class="tag">Lenders and buyers</td><td>Development finance institutions, export credit agencies and international offtakers now condition funding and supply contracts on a verified inventory.</td></tr>
+      <tr><td class="tag">CBAM</td><td>The EU <em class="term">Carbon Border Adjustment Mechanism</em> prices embedded carbon in certain imports. Refined product is not yet in scope, but the direction of travel is fixed, and buyers are asking early.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box plain"><span class="lbl">In plain terms</span>
+  <p>An inventory is a carbon version of a financial account. The
+  <strong>boundary</strong> is which companies and sites you consolidate, the
+  <strong>sources</strong> are your line items, the <strong>emission factors</strong> are your
+  unit prices, and the <strong>assurance</strong> is your audit. If you can read a profit and
+  loss statement, you can read an inventory.</p></div>
+
+  <div class="box warn"><span class="lbl">The one rule that matters most</span>
+  <p><strong>Count once, count everything, and say how you counted.</strong> An inventory is
+  judged on completeness, consistency and transparency far more than on precision. A
+  well-documented estimate beats an undocumented measurement.</p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 2</span></div>
+</section>
+
+<!-- ==================== 3 LANGUAGE ==================== -->
+<section class="page">
+  <h2><span class="n">02</span>The language, in full</h2>
+  <p class="deck">Every abbreviation used in this brief, expanded. Nothing here is assumed knowledge.</p>
+
+  <table>
+    <thead><tr><th style="width:16%">Short form</th><th style="width:34%">Full term</th><th>What it actually means</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">GHG</td><td>Greenhouse gas</td><td>Any gas that traps heat in the atmosphere. Seven are counted under the Kyoto basket.</td></tr>
+      <tr><td class="tag">CO&#8322;e</td><td>Carbon dioxide equivalent</td><td>The common unit. Every gas is converted into the amount of CO&#8322; that would warm the planet equally.</td></tr>
+      <tr><td class="tag">GWP</td><td>Global Warming Potential</td><td>The conversion rate. Methane's 100-year GWP of 29.8 means one tonne of methane equals 29.8 tonnes of CO&#8322;e.</td></tr>
+      <tr><td class="tag">AR6</td><td>Sixth Assessment Report</td><td>The 2021 report of the Intergovernmental Panel on Climate Change (IPCC), the current source of GWP values.</td></tr>
+      <tr><td class="tag">AD</td><td>Activity data</td><td>The physical quantity that drives an emission &mdash; tonnes of fuel burned, kilowatt-hours bought, cubic metres flared.</td></tr>
+      <tr><td class="tag">EF</td><td>Emission factor</td><td>Emissions per unit of activity, e.g. 2.75 tonnes CO&#8322; per tonne of fuel gas burned.</td></tr>
+      <tr><td class="tag">LHV / HHV</td><td>Lower / Higher Heating Value</td><td>Two ways of stating a fuel's energy content. They differ by the heat of water vapour. <strong>Mixing them is the most common inventory error.</strong></td></tr>
+      <tr><td class="tag">CEMS</td><td>Continuous Emission Monitoring System</td><td>Instruments in a stack that measure gas concentration and flow in real time.</td></tr>
+      <tr><td class="tag">LDAR</td><td>Leak Detection and Repair</td><td>A programme of surveying valves, flanges and seals for leaks and fixing them to a deadline.</td></tr>
+      <tr><td class="tag">OGI</td><td>Optical Gas Imaging</td><td>An infrared camera that renders otherwise invisible hydrocarbon leaks visible on screen.</td></tr>
+      <tr><td class="tag">FCC</td><td>Fluid Catalytic Cracking</td><td>The unit that cracks heavy gas oil into petrol. Its regenerator burns coke off the catalyst and is a major CO&#8322; source.</td></tr>
+      <tr><td class="tag">SMR</td><td>Steam Methane Reforming</td><td>The standard way to make hydrogen. It releases CO&#8322; from the chemical reaction itself, not only from burning fuel.</td></tr>
+      <tr><td class="tag">SRU</td><td>Sulphur Recovery Unit</td><td>Converts hydrogen sulphide into elemental sulphur; its tail gas is incinerated.</td></tr>
+      <tr><td class="tag">CDU / VDU</td><td>Crude / Vacuum Distillation Unit</td><td>The first and second separation stages of the refinery.</td></tr>
+      <tr><td class="tag">CHP</td><td>Combined Heat and Power</td><td>On-site plant producing electricity and steam together, also called cogeneration.</td></tr>
+      <tr><td class="tag">CWT</td><td>Complexity Weighted Tonne</td><td>A throughput measure that weights each unit by how energy-intensive it is, so refineries of different configurations can be compared fairly.</td></tr>
+      <tr><td class="tag">EII</td><td>Energy Intensity Index</td><td>Solomon Associates' benchmark of actual energy use against a standard for that configuration. 100 = par.</td></tr>
+      <tr><td class="tag">bpsd</td><td>Barrels per stream day</td><td>Capacity on a day the unit is actually running, as distinct from calendar-day average.</td></tr>
+      <tr><td class="tag">MtCO&#8322;e</td><td>Million tonnes CO&#8322;e</td><td>The scale an inventory of this size is reported in.</td></tr>
+      <tr><td class="tag">NDC</td><td>Nationally Determined Contribution</td><td>A country's self-declared emissions pledge under the Paris Agreement.</td></tr>
+      <tr><td class="tag">MRV</td><td>Measurement, Reporting and Verification</td><td>The umbrella term for the whole cycle this document describes.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 3</span></div>
+</section>
+
+<!-- ==================== 4 BOUNDARY ==================== -->
+<section class="page">
+  <h2><span class="n">03</span>Drawing the boundary</h2>
+  <p class="deck">Before you count anything, you decide what is yours. Two boundaries, set in this order.</p>
+
+  <h3>Boundary one &mdash; the organisational boundary: which entities are ours?</h3>
+  <p>The <strong>GHG Protocol Corporate Standard</strong>, the world's most widely used
+  accounting framework, offers three consolidation approaches. You must choose one and
+  apply it to every entity you hold.</p>
+
+  <table>
+    <thead><tr><th style="width:22%">Approach</th><th style="width:39%">You count</th><th>Consequence</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Equity share</td><td>A share of emissions equal to your share of ownership.</td><td>A 40% stake in a joint-venture refinery brings in 40% of its emissions. Reflects economic interest, but you report emissions you cannot control.</td></tr>
+      <tr><td class="tag">Financial control</td><td>100% of entities whose financial and operating policies you direct to gain economic benefit.</td><td>Aligns the carbon boundary with the consolidated financial statements &mdash; useful when the inventory sits in the annual report.</td></tr>
+      <tr><td class="tag">Operational control</td><td>100% of operations where you have full authority to introduce and implement operating policies.</td><td><strong>The usual choice in oil and gas.</strong> You report what you can actually change, which makes targets meaningful.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box alt"><span class="lbl">Industry alternatives</span>
+  <p>The GHG Protocol is not the only framework. <strong>ISO 14064-1:2018</strong> is the
+  certifiable international standard, and speaks of <em class="term">direct</em> and
+  <em class="term">indirect</em> emissions rather than scopes. The
+  <strong>API Compendium of Greenhouse Gas Emissions Methodologies for the Oil and Natural
+  Gas Industry</strong> (American Petroleum Institute) is the sector's calculation
+  reference. The <strong>IPIECA / API / IOGP Petroleum Industry Guidelines</strong> translate
+  the GHG Protocol into refinery language. Regulator-mandated schemes such as the
+  <strong>EU Emissions Trading System</strong> monitoring rules and <strong>US EPA
+  Greenhouse Gas Reporting Program Subpart Y</strong> (petroleum refineries) impose their
+  own methods where you operate in those jurisdictions. Choose one primary framework,
+  then reconcile to the others &mdash; never blend them silently.</p></div>
+
+  <h3>Boundary two &mdash; the operational boundary: which emissions are ours?</h3>
+  <p>Once you know which entities you consolidate, you sort their emissions into three
+  <strong>scopes</strong>. The scopes exist to stop double counting between companies.</p>
+
+  <table>
+    <thead><tr><th style="width:14%">Scope</th><th style="width:30%">Definition</th><th>At a refinery</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Scope 1<br>Direct</td><td>Emissions from sources you own or control.</td><td>Everything burned, vented, flared or leaked inside the fence.</td></tr>
+      <tr><td class="tag">Scope 2<br>Indirect, energy</td><td>Emissions from generating the electricity, steam, heat or cooling you buy.</td><td>Grid power imported from the national grid or an independent power producer.</td></tr>
+      <tr><td class="tag">Scope 3<br>Indirect, other</td><td>All other emissions in your value chain, upstream and downstream, across 15 defined categories.</td><td>Producing and shipping the crude in, and above all <strong>customers burning the fuel you sold</strong>.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box plain"><span class="lbl">In plain terms</span>
+  <p>Scope 1 is the smoke from your own chimney. Scope 2 is the smoke from the power
+  station that runs your lights. Scope 3 is the smoke from everyone else's chimney that
+  exists because of your business &mdash; including every vehicle running on the diesel you
+  refined. Scope 1 and 2 are reported by everyone; Scope 3 is where the real number hides.</p></div>
+
+  <div class="box warn"><span class="lbl">Set these in writing before you start</span>
+  <p><strong>Base year</strong> &mdash; the year all future performance is measured against, plus a
+  written policy on when it must be recalculated (acquisitions, disposals, method changes).
+  <strong>Reporting period</strong> &mdash; align it with the financial year.
+  <strong>Materiality threshold</strong> &mdash; commonly 5%, below which a source may be
+  estimated rather than measured, but must still be listed.</p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 4</span></div>
+</section>
+
+<!-- ==================== 5 GASES AND MATHS ==================== -->
+<section class="page">
+  <h2><span class="n">04</span>The gases and the maths</h2>
+  <p class="deck">Seven gases exist in the framework. Three of them matter at a refinery, and one equation runs the whole calculation.</p>
+
+  <table>
+    <thead><tr><th style="width:24%">Gas</th><th class="num" style="width:13%">GWP AR6</th><th class="num" style="width:13%">GWP AR5</th><th>Where it arises at a refinery</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Carbon dioxide, CO&#8322;</td><td class="num">1</td><td class="num">1</td><td>All combustion, catalyst regeneration, hydrogen manufacture. <strong>Around 95% of the refinery total.</strong></td></tr>
+      <tr><td class="tag">Methane, CH&#8324;</td><td class="num">29.8</td><td class="num">29.8</td><td>Fugitive leaks, venting, incomplete flare combustion, tank breathing. Small in tonnes, heavy in CO&#8322;e.</td></tr>
+      <tr><td class="tag">Nitrous oxide, N&#8322;O</td><td class="num">273</td><td class="num">265</td><td>A trace product of combustion, and of biological treatment in the effluent plant.</td></tr>
+      <tr><td class="tag">HFCs and PFCs</td><td class="num">up to 14,600</td><td class="num">&mdash;</td><td>Refrigerant losses from chillers and air conditioning. Tiny volumes, very high GWP.</td></tr>
+      <tr><td class="tag">SF&#8326;</td><td class="num">25,200</td><td class="num">23,500</td><td>Insulating gas in high-voltage switchgear.</td></tr>
+      <tr><td class="tag">NF&#8323;</td><td class="num">17,400</td><td class="num">16,100</td><td>Not normally present in refining.</td></tr>
+    </tbody>
+    <caption>GWP values are 100-year, fossil-origin methane. State which IPCC assessment report you used &mdash; results are not comparable across vintages.</caption>
+  </table>
+
+  <div class="box warn"><span class="lbl">Which GWP set should you use?</span>
+  <p>Use <strong>AR6</strong> for new inventories: it is current and is what the GHG Protocol and
+  CDP now expect. But several compliance regimes still mandate <strong>AR5</strong>, and some
+  older national inventories run on <strong>AR4</strong> (methane 25). If you must report into
+  more than one regime, hold the underlying gas tonnages &mdash; not the CO&#8322;e &mdash; as
+  your master data, and convert at the point of reporting. That single discipline makes
+  every restatement trivial.</p></div>
+
+  <h3>The core equation</h3>
+  <div class="box plain nb"><span class="lbl">Every line of an inventory</span>
+  <p style="font-family:'Liberation Sans',Arial,sans-serif;font-size:12pt;color:#0B2545;font-weight:700;text-align:center;margin:2mm 0 3mm">
+  Emissions (tCO&#8322;e) &nbsp;=&nbsp; Activity Data &nbsp;&times;&nbsp; Emission Factor &nbsp;&times;&nbsp; GWP</p>
+  <p class="nb">For a fuel, the emission factor is itself built from three things: the
+  fuel's energy content, the carbon it contains per unit of energy, and the fraction of
+  that carbon which actually oxidises &mdash; conventionally taken as 1.00 for gas and
+  0.99&ndash;1.00 for liquids.</p></div>
+
+  <h4>Worked example &mdash; one line, start to finish</h4>
+  <p>The refinery burned <strong>310,000 tonnes of refinery fuel gas</strong> in its heaters
+  and boilers. Laboratory analysis gives a lower heating value of <strong>46.5 gigajoules
+  per tonne</strong> and a carbon content of <strong>15.8 tonnes of carbon per terajoule</strong>.</p>
+  <ul>
+    <li>Energy released = 310,000 &times; 46.5 = <strong>14,415,000 GJ</strong>, i.e. 14,415 TJ</li>
+    <li>Carbon burned = 14,415 &times; 15.8 = <strong>227,757 tonnes of carbon</strong></li>
+    <li>Convert carbon to carbon dioxide by the ratio of molecular masses, 44/12 = 3.664</li>
+    <li>Emissions = 227,757 &times; 3.664 &times; 1.00 (oxidation) = <strong>834,500 tCO&#8322;</strong></li>
+  </ul>
+  <p>Methane and nitrous oxide from the same combustion are calculated separately with
+  their own factors and converted at GWP 29.8 and 273. In gas firing they add well under
+  1% and are often the difference between a tidy inventory and a complete one.</p>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 5</span></div>
+</section>
+
+<!-- ==================== 6 SCOPE 1 SOURCE MAP ==================== -->
+<section class="page">
+  <h2><span class="n">05</span>Scope 1: where it actually comes from</h2>
+  <p class="deck">A refinery is not one chimney. It is roughly a dozen distinct emitting mechanisms, and two of them carry four fifths of the total.</p>
+
+  <table>
+    <thead><tr><th style="width:23%">Source</th><th style="width:8%" class="num">Share</th><th style="width:10%">Gases</th><th>The mechanism</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Fired heaters, boilers and CHP</td><td class="num">60%</td><td>CO&#8322;, CH&#8324;, N&#8322;O</td><td>Burning refinery fuel gas and natural gas to drive distillation, reforming and steam generation. The single largest bucket at almost every refinery.</td></tr>
+      <tr><td class="tag">FCC catalyst regeneration</td><td class="num">20%</td><td>CO&#8322;, CO, N&#8322;O</td><td>Coke deposits on the cracking catalyst and is burned off in the regenerator to restore activity. <strong>This is a process emission, not fuel combustion</strong> &mdash; it happens whether or not you burn any fuel. A carbon monoxide boiler downstream completes the burn.</td></tr>
+      <tr><td class="tag">Hydrogen plant (SMR)</td><td class="num">9%</td><td>CO&#8322;</td><td>Two separate streams: CO&#8322; from the reforming reaction itself, released at high purity, plus CO&#8322; from firing the reformer. <strong>The reaction CO&#8322; is nearly pure, which makes it the cheapest capture target on the site.</strong></td></tr>
+      <tr><td class="tag">Flaring</td><td class="num">4%</td><td>CO&#8322;, CH&#8324;</td><td>Routine purge, plus upset, start-up and emergency relief. Combustion is efficient but not complete &mdash; the unburned fraction escapes as methane.</td></tr>
+      <tr><td class="tag">Fugitives and venting</td><td class="num">3%</td><td>CH&#8324;</td><td>Thousands of valves, flanges, connectors, pump and compressor seals, each leaking a little. Plus deliberate releases: blowdowns, depressurisation, tank working and breathing losses.</td></tr>
+      <tr><td class="tag">Sulphur recovery</td><td class="num">2%</td><td>CO&#8322;</td><td>Carbon dioxide carried in with the acid gas, released in the Claus unit, plus tail gas incineration.</td></tr>
+      <tr><td class="tag">Delayed coker</td><td class="num">1%</td><td>CO&#8322;, CH&#8324;</td><td>Drum steam-out, quench and vent cycles between coke cuts.</td></tr>
+      <tr><td class="tag">Wastewater treatment</td><td class="num">&lt;1%</td><td>CH&#8324;, N&#8322;O</td><td>Methane from anaerobic zones; nitrous oxide from nitrification and denitrification in biological treatment.</td></tr>
+      <tr><td class="tag">Mobile combustion</td><td class="num">&lt;1%</td><td>CO&#8322;, CH&#8324;, N&#8322;O</td><td>Company-owned vehicles, mobile plant, firewater pumps and emergency generators.</td></tr>
+      <tr><td class="tag">Refrigerants</td><td class="num">&lt;1%</td><td>HFCs</td><td>Losses from chillers and air conditioning, charged on top-up quantities.</td></tr>
+      <tr class="total"><td>Total Scope 1</td><td class="num">100%</td><td>&mdash;</td><td>1.60 million tonnes CO&#8322;e for the reference refinery</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn"><span class="lbl">The two mistakes that cost you most</span>
+  <p><strong>Forgetting the FCC.</strong> Teams new to refinery inventories count the fuel
+  meters and stop. The FCC regenerator burns no purchased fuel, has no fuel meter, and is
+  a fifth of the site total. <strong>Forgetting the hydrogen plant's process CO&#8322;.</strong>
+  Only the reformer's fuel gets metered; the reaction carbon dioxide leaves in the process
+  stream and is invisible to a fuel-based count.</p></div>
+
+  <div class="box apply"><span class="lbl">What an operator does</span>
+  <p>Build a <strong>source register</strong> before you build a spreadsheet: one row per
+  emitting point, each tied to a tag number, a measurement method, a data owner and a
+  named system of record. An inventory is only as good as the register underneath it, and
+  the register &mdash; not the spreadsheet &mdash; is what an assurance provider will ask to see first.</p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 6</span></div>
+</section>
+
+<!-- ==================== 7 MEASUREMENT ==================== -->
+<section class="page">
+  <h2><span class="n">06</span>How each source is measured</h2>
+  <p class="deck">There is a hierarchy. Direct measurement beats a mass balance, which beats a calculation, which beats a generic factor.</p>
+
+  <table>
+    <thead><tr><th style="width:16%">Tier</th><th style="width:30%">Method</th><th style="width:14%" class="num">Typical uncertainty</th><th>Use it when</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">1 &mdash; best</td><td>Direct measurement (CEMS)</td><td class="num">&plusmn;2&ndash;5%</td><td>Large single stacks where the capital is justified &mdash; typically the FCC regenerator.</td></tr>
+      <tr><td class="tag">2</td><td>Mass balance / carbon balance</td><td class="num">&plusmn;5&ndash;10%</td><td>Carbon in equals carbon out. The standard for fuel gas systems and for the FCC coke burn.</td></tr>
+      <tr><td class="tag">3</td><td>Engineering calculation</td><td class="num">&plusmn;10&ndash;20%</td><td>Process simulation or first-principles chemistry, e.g. hydrogen plant reaction CO&#8322;.</td></tr>
+      <tr><td class="tag">4</td><td>Published emission factor</td><td class="num">&plusmn;15&ndash;30%</td><td>Metered activity data multiplied by an API, IPCC or national factor.</td></tr>
+      <tr><td class="tag">5 &mdash; last resort</td><td>Generic / population factor</td><td class="num">&plusmn;50%+</td><td>Component-count factors for fugitives where no survey exists. Acceptable only for immaterial sources, and you must say so.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Source by source</h3>
+  <table>
+    <thead><tr><th style="width:24%">Source</th><th style="width:38%">Primary method</th><th>Industry alternatives</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Fuel gas combustion</td><td>Continuous flow metering plus periodic composition analysis by gas chromatograph, giving a true carbon content.</td><td>Default fuel factors from the API Compendium or IPCC where no chromatograph exists; back-calculation from a site-wide carbon balance.</td></tr>
+      <tr><td class="tag">FCC regenerator</td><td>CEMS on the regenerator flue gas &mdash; concentration and flow, measured continuously.</td><td>Coke burn rate from the heat balance &times; carbon content; or the EPA Subpart Y correlation using flue gas oxygen and CO&#8322;.</td></tr>
+      <tr><td class="tag">Hydrogen plant</td><td>Carbon balance across the unit: carbon in the feed gas minus carbon leaving in product and purge.</td><td>Stoichiometric calculation from hydrogen production; vendor performance curves.</td></tr>
+      <tr><td class="tag">Flaring</td><td>Flare gas flow meter plus composition, with an assumed destruction efficiency of <strong>98%</strong> &mdash; the residual 2% is reported as methane.</td><td>Video or infrared flare monitoring to confirm the flame is lit; sonic meters where flows swing widely; the Nigerian flare regulations' own measurement requirements where they apply.</td></tr>
+      <tr><td class="tag">Fugitives</td><td><strong>LDAR</strong> using US EPA Method 21 sniffing, or <strong>OGI</strong> infrared camera surveys, with measured leak rates replacing default factors.</td><td><strong>OGMP 2.0</strong> (United Nations <em class="term">Oil and Gas Methane Partnership</em>) Levels 4 and 5, requiring source-level measurement then site-level reconciliation; aerial, drone and satellite surveys; acoustic and laser scanning.</td></tr>
+      <tr><td class="tag">Storage tanks</td><td>API Manual of Petroleum Measurement Standards Chapter 19 correlations for working and breathing losses.</td><td>EPA TANKS-style models; direct measurement of vapour recovery unit throughput.</td></tr>
+      <tr><td class="tag">Purchased electricity</td><td>Utility invoices and revenue meters &mdash; the cleanest activity data on the site.</td><td>Half-hourly interior metering where a market-based factor must be applied to a specific contract.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box alt"><span class="lbl">Industry alternatives &mdash; the methane question</span>
+  <p>Methane is where measurement practice is moving fastest. Traditional inventories used
+  <strong>component-count factors</strong>: multiply the number of valves by an average leak
+  rate. Aerial and satellite campaigns have repeatedly shown these understate real emissions,
+  because a small number of large leaks dominate. Current best practice is a
+  <strong>measurement-informed inventory</strong>: survey, quantify the actual leaks, and
+  reconcile the bottom-up source count against a top-down site measurement. That is what
+  OGMP 2.0 Level 5 requires, and it is the most credible thing a refinery can do on methane.</p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 7</span></div>
+</section>
+
+<!-- ==================== 8 SCOPE 2 AND 3 ==================== -->
+<section class="page">
+  <h2><span class="n">07</span>Scope 2 and Scope 3</h2>
+  <p class="deck">Scope 2 is small and easy. Scope 3 is enormous and awkward, and it is the number that decides whether anyone believes your inventory.</p>
+
+  <h3>Scope 2 &mdash; bought energy, reported twice</h3>
+  <p>The GHG Protocol Scope 2 Guidance requires <strong>dual reporting</strong>. Both numbers
+  appear; neither replaces the other.</p>
+  <table>
+    <thead><tr><th style="width:24%">Method</th><th style="width:36%">Factor used</th><th>What it tells you</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Location-based</td><td>The average emissions intensity of the grid you physically sit on. For Nigeria, of the order of <strong>0.44 tCO&#8322; per MWh</strong> &mdash; always cite the current published national or International Energy Agency figure and its year.</td><td>Your physical dependence on the grid as it actually is.</td></tr>
+      <tr><td class="tag">Market-based</td><td>The factor attached to the electricity you contracted for &mdash; a power purchase agreement, a renewable certificate, or a supplier-specific rate.</td><td>The effect of your procurement decisions.</td></tr>
+    </tbody>
+  </table>
+  <p>A refinery with its own <strong>CHP</strong> plant may import very little. Note that
+  self-generated power is <strong>Scope 1</strong>, not Scope 2 &mdash; the fuel is burned
+  inside your fence. If you export surplus power or steam, report the export separately;
+  you may not net it off Scope 1.</p>
+
+  <h3>Scope 3 &mdash; the fifteen categories</h3>
+  <table>
+    <thead><tr><th style="width:8%" class="num">Cat.</th><th style="width:36%">Category</th><th>Relevance to a refinery</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Purchased goods and services</td><td><strong>Material.</strong> The upstream footprint of the crude itself, plus catalysts, hydrogen and chemicals.</td></tr>
+      <tr><td class="num">2</td><td>Capital goods</td><td>Minor, lumpy &mdash; concentrated in turnaround and project years.</td></tr>
+      <tr><td class="num">3</td><td>Fuel- and energy-related activities</td><td><strong>Material.</strong> Well-to-tank emissions of fuels you buy, and grid transmission losses.</td></tr>
+      <tr><td class="num">4</td><td>Upstream transportation and distribution</td><td><strong>Material.</strong> Crude tankers and pipelines into the refinery.</td></tr>
+      <tr><td class="num">5</td><td>Waste generated in operations</td><td>Minor. Spent catalyst, oily sludge, treatment residues.</td></tr>
+      <tr><td class="num">6</td><td>Business travel</td><td>Minor, but visible and cheap to collect.</td></tr>
+      <tr><td class="num">7</td><td>Employee commuting</td><td>Minor.</td></tr>
+      <tr><td class="num">8</td><td>Upstream leased assets</td><td>Usually captured already under operational control.</td></tr>
+      <tr><td class="num">9</td><td>Downstream transportation</td><td>Moderate. Product trucking and coastal shipping to depots.</td></tr>
+      <tr><td class="num">10</td><td>Processing of sold products</td><td>Applies to intermediates sold on for further processing, e.g. naphtha to petrochemicals.</td></tr>
+      <tr><td class="num">11</td><td><strong>Use of sold products</strong></td><td><strong>Dominant.</strong> Customers burning the petrol, diesel, jet fuel and fuel oil you made. Typically <strong>85&ndash;90% of the entire footprint.</strong></td></tr>
+      <tr><td class="num">12</td><td>End-of-life of sold products</td><td>Minor for fuels, which are consumed rather than disposed of. Relevant to lubricants and bitumen.</td></tr>
+      <tr><td class="num">13</td><td>Downstream leased assets</td><td>Retail sites and depots you own but do not operate.</td></tr>
+      <tr><td class="num">14</td><td>Franchises</td><td>Branded filling stations under franchise.</td></tr>
+      <tr><td class="num">15</td><td>Investments</td><td>Equity stakes not consolidated under your chosen boundary.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn"><span class="lbl">Category 11 is where credibility is won or lost</span>
+  <p>Reporting Scope 1 and 2 alone and calling it a carbon footprint is the most common
+  criticism levelled at refiners: it omits roughly nine tenths of the impact. Category 11
+  is also <strong>easy to calculate</strong> &mdash; product sold by grade &times; a published
+  combustion factor. If you disclose one Scope 3 category, disclose this one.</p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 8</span></div>
+</section>
+
+<!-- ==================== 9 WORKED INVENTORY ==================== -->
+<section class="page">
+  <h2><span class="n">08</span>The worked inventory</h2>
+  <p class="deck">The reference refinery: 120,000 bpsd, medium complexity, Nigeria. Crude throughput 5.7 million tonnes (42 million barrels over 350 operating days).</p>
+
+  <table>
+    <thead><tr><th style="width:9%">Scope</th><th style="width:33%">Source</th><th class="num" style="width:14%">MtCO&#8322;e</th><th class="num" style="width:11%">% of total</th><th>Method used</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">1</td><td>Fired heaters, boilers, CHP</td><td class="num">0.96</td><td class="num">5.0%</td><td>Mass balance on metered fuel gas</td></tr>
+      <tr><td class="tag">1</td><td>FCC catalyst regeneration</td><td class="num">0.32</td><td class="num">1.7%</td><td>CEMS on regenerator stack</td></tr>
+      <tr><td class="tag">1</td><td>Hydrogen plant (SMR)</td><td class="num">0.14</td><td class="num">0.7%</td><td>Carbon balance across unit</td></tr>
+      <tr><td class="tag">1</td><td>Flaring</td><td class="num">0.064</td><td class="num">0.3%</td><td>Flow meter, 98% destruction</td></tr>
+      <tr><td class="tag">1</td><td>Fugitives and venting</td><td class="num">0.048</td><td class="num">0.3%</td><td>OGI survey, measurement-informed</td></tr>
+      <tr><td class="tag">1</td><td>SRU, coker, wastewater, mobile</td><td class="num">0.064</td><td class="num">0.3%</td><td>Engineering calculation</td></tr>
+      <tr class="total"><td>1</td><td>Total direct emissions</td><td class="num">1.60</td><td class="num">8.3%</td><td>&mdash;</td></tr>
+      <tr><td class="tag">2</td><td>Purchased electricity, 180 GWh</td><td class="num">0.08</td><td class="num">0.4%</td><td>Invoices &times; 0.44 t/MWh, location-based</td></tr>
+      <tr class="total"><td>1+2</td><td>Total operational emissions</td><td class="num">1.68</td><td class="num">8.8%</td><td>&mdash;</td></tr>
+      <tr><td class="tag">3</td><td>Cat. 11 &mdash; use of sold products</td><td class="num">16.7</td><td class="num">87.0%</td><td>5.4 Mt product &times; 3.1 tCO&#8322;/t</td></tr>
+      <tr><td class="tag">3</td><td>Cat. 1 &mdash; crude, upstream</td><td class="num">0.52</td><td class="num">2.7%</td><td>Supplier and regional factors</td></tr>
+      <tr><td class="tag">3</td><td>Cat. 3 &mdash; fuel and energy related</td><td class="num">0.14</td><td class="num">0.7%</td><td>Well-to-tank factors</td></tr>
+      <tr><td class="tag">3</td><td>Cat. 4 &mdash; upstream transport</td><td class="num">0.11</td><td class="num">0.6%</td><td>Tonne-kilometre factors</td></tr>
+      <tr><td class="tag">3</td><td>Cat. 5, 6, 7 and others</td><td class="num">0.03</td><td class="num">0.2%</td><td>Spend and activity based</td></tr>
+      <tr class="total"><td>3</td><td>Total value chain emissions</td><td class="num">17.5</td><td class="num">91.1%</td><td>&mdash;</td></tr>
+      <tr class="total"><td>All</td><td>Total footprint</td><td class="num">19.2</td><td class="num">100%</td><td>&mdash;</td></tr>
+    </tbody>
+    <caption>Constructed teaching case. Figures are internally consistent and representative of a medium-complexity refinery, but are not the record of any operating facility.</caption>
+  </table>
+
+  <h4>The proportion, drawn to scale</h4>
+  <div class="bar">
+    <div style="width:8.3%;background:#0B2545">8.3%</div>
+    <div style="width:0.4%;background:#17395F"></div>
+    <div style="width:87.0%;background:#4C86C6">87.0%</div>
+    <div style="width:4.2%;background:#A8C6E5;color:#0B2545">4.2%</div>
+  </div>
+  <div class="legend">
+    <span><i style="background:#0B2545"></i>Scope 1 &mdash; 1.60 Mt</span>
+    <span><i style="background:#17395F"></i>Scope 2 &mdash; 0.08 Mt</span>
+    <span><i style="background:#4C86C6"></i>Scope 3 Cat. 11 &mdash; 16.7 Mt</span>
+    <span><i style="background:#A8C6E5"></i>Other Scope 3 &mdash; 0.80 Mt</span>
+  </div>
+
+  <h3>Intensity metrics &mdash; how you compare with anyone else</h3>
+  <div class="stats">
+    <div class="stat"><div class="v">0.28</div><div class="k">tCO&#8322;e per tonne of crude processed</div></div>
+    <div class="stat"><div class="v">38</div><div class="k">kgCO&#8322;e per barrel processed</div></div>
+    <div class="stat alt2"><div class="v">CWT</div><div class="k">Complexity Weighted Tonne &mdash; the fair basis for comparing different configurations</div></div>
+    <div class="stat alt2"><div class="v">EII</div><div class="k">Solomon Energy Intensity Index &mdash; 100 is par for your configuration</div></div>
+  </div>
+
+  <div class="box warn"><span class="lbl">Why absolute tonnes alone will mislead you</span>
+  <p>A simple refinery that only distils crude will always look better per tonne than a
+  complex one running an FCC, a coker and a hydrogen plant &mdash; even though the complex
+  refinery makes far more valuable product from the same barrel. That is why the industry
+  normalises on <strong>CWT</strong> or <strong>Solomon EII</strong>, which weight throughput by
+  how energy-intensive each unit genuinely is. Report absolute tonnes for accountability
+  and intensity for comparison. Never use intensity alone as a target: intensity can fall
+  while absolute emissions rise.</p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 9</span></div>
+</section>
+
+<!-- ==================== 10 DATA QUALITY ==================== -->
+<section class="page">
+  <h2><span class="n">09</span>Data quality and assurance</h2>
+  <p class="deck">The number is only worth what its evidence is worth. Five principles, then an independent opinion.</p>
+
+  <h3>The five GHG Protocol principles</h3>
+  <table>
+    <thead><tr><th style="width:22%">Principle</th><th>What it demands in practice</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Relevance</td><td>The inventory reflects the real emissions of the business and serves the decisions its users must make.</td></tr>
+      <tr><td class="tag">Completeness</td><td>Every source inside the boundary is accounted for. Anything excluded is <strong>listed and justified</strong>, never silently dropped.</td></tr>
+      <tr><td class="tag">Consistency</td><td>The same methods year on year, so a trend means something. Method changes trigger restatement of prior years.</td></tr>
+      <tr><td class="tag">Transparency</td><td>Methods, factors, assumptions and their sources are documented well enough for a third party to reproduce your result.</td></tr>
+      <tr><td class="tag">Accuracy</td><td>Uncertainty is reduced as far as practicable, and what remains is quantified rather than hidden.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Independent assurance</h3>
+  <table>
+    <thead><tr><th style="width:22%">Level</th><th style="width:26%">What the opinion says</th><th>Cost and effort</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Limited assurance</td><td>"Nothing has come to our attention" &mdash; a negative form of conclusion based on enquiry and analytical procedures.</td><td>The usual starting point. Lower cost, lower confidence.</td></tr>
+      <tr><td class="tag">Reasonable assurance</td><td>"In our opinion, the inventory is fairly stated" &mdash; a positive opinion, closer to a financial audit.</td><td>Substantially more testing and cost. Increasingly expected for Scope 1 and 2.</td></tr>
+    </tbody>
+  </table>
+  <p>The relevant standards are <strong>ISAE 3410</strong> (<em class="term">International
+  Standard on Assurance Engagements</em>, Assurance Engagements on Greenhouse Gas
+  Statements) and <strong>ISO 14064-3</strong>. Verification bodies should be accredited;
+  in Nigeria, look for accreditation recognised by the International Accreditation Forum.</p>
+
+  <div class="box apply"><span class="lbl">What an operator does</span>
+  <ul class="nb">
+    <li>Keep an <strong>evidence pack</strong> per source: meter calibration certificates,
+    laboratory analyses, invoices, and the calculation itself with its factor citation.</li>
+    <li>Run an <strong>uncertainty assessment</strong>. A defensible inventory states a range,
+    for example 1.60 Mt &plusmn;6%, rather than a single false-precision figure.</li>
+    <li>Hold gas tonnages as master data and convert to CO&#8322;e only at reporting, so a
+    change of GWP vintage never forces a rebuild.</li>
+    <li>Write the <strong>base year recalculation policy</strong> before you need it. Writing it
+    afterwards always looks like moving the goalposts.</li>
+    <li>Close the loop with the sustainability report: the inventory boundary and the
+    reporting boundary must be the same, or explain precisely why they differ.</li>
+  </ul></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 10</span></div>
+</section>
+
+<!-- ==================== 11 ACTION ==================== -->
+<section class="page">
+  <h2><span class="n">10</span>What an operator does next</h2>
+  <p class="deck">An inventory that does not change a decision was a bookkeeping exercise. These are the levers, cheapest first.</p>
+
+  <table>
+    <thead><tr><th style="width:26%">Lever</th><th style="width:13%" class="num">Scope 1 cut</th><th style="width:13%">Cost</th><th>What it involves</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Energy management and heat integration</td><td class="num">3&ndash;8%</td><td>Low</td><td>Pinch analysis, fouling control, insulation repair, steam trap surveys, excess-air optimisation on heaters. Pays back inside a year and needs no new plant.</td></tr>
+      <tr><td class="tag">Methane and LDAR programme</td><td class="num">1&ndash;3%</td><td>Low</td><td>OGI survey, fix the large leaks first. Cheap per tonne of CO&#8322;e because methane's GWP is 29.8 and the recovered gas has value.</td></tr>
+      <tr><td class="tag">Flare gas recovery</td><td class="num">2&ndash;4%</td><td>Low&ndash;medium</td><td>Compress and return routine flare gas to the fuel system. Reduces emissions and buys back fuel.</td></tr>
+      <tr><td class="tag">Advanced process control</td><td class="num">2&ndash;5%</td><td>Medium</td><td>Tighter control of heater firing and unit severity, reducing the energy spent on the same output.</td></tr>
+      <tr><td class="tag">Renewable power purchase</td><td class="num">Scope 2 only</td><td>Medium</td><td>A power purchase agreement or certificates. Moves the market-based Scope 2 figure; leaves Scope 1 untouched.</td></tr>
+      <tr><td class="tag">Electrification of drives</td><td class="num">3&ndash;6%</td><td>Medium&ndash;high</td><td>Replace steam turbine drivers with electric motors. Only a genuine cut if the electricity is low carbon.</td></tr>
+      <tr><td class="tag">Carbon capture on the hydrogen plant</td><td class="num">7&ndash;9%</td><td>High</td><td>The SMR reaction stream is nearly pure CO&#8322;, so capture cost per tonne is the lowest on the site. Requires transport and storage to exist.</td></tr>
+      <tr><td class="tag">Co-processing bio-feedstock</td><td class="num">Scope 3</td><td>High</td><td>Vegetable oils or used cooking oil in existing hydrotreaters, lowering the carbon intensity of the product sold.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box alt"><span class="lbl">Industry alternatives &mdash; how these get prioritised</span>
+  <p>The standard tool is a <strong>Marginal Abatement Cost Curve (MACC)</strong>: every lever
+  plotted as a bar whose width is the tonnes it abates and whose height is the net cost per
+  tonne. Levers below the zero line pay for themselves. The alternatives are a simple
+  <strong>payback ranking</strong> where capital is the binding constraint, or an
+  <strong>internal carbon price</strong> applied to every investment case, which is what most
+  international oil companies now use because it embeds the decision in normal capital
+  discipline rather than in a separate climate process.</p></div>
+
+  <h3>The annual cycle</h3>
+  <table>
+    <thead><tr><th style="width:20%">When</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="tag">Continuously</td><td>Meters, CEMS and laboratory analyses feed the data historian. Monthly close of activity data.</td></tr>
+      <tr><td class="tag">Q1</td><td>Consolidate the prior year. Calculate, review against expectation, investigate variances above the materiality threshold.</td></tr>
+      <tr><td class="tag">Q2</td><td>Independent assurance. Publish in the sustainability report and the annual report; file under Climate Change Act section 24.</td></tr>
+      <tr><td class="tag">Q3</td><td>Re-run the abatement plan against the new baseline. Feed the capital plan.</td></tr>
+      <tr><td class="tag">Q4</td><td>Set next year's targets. Confirm whether any acquisition, disposal or method change triggers base year recalculation.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box warn"><span class="lbl">The finding to take away</span>
+  <p>For this refinery, <strong>Scope 1 and 2 together are 8.8% of the footprint and
+  Category 11 alone is 87%.</strong> Every operational lever above works on the 8.8%. Moving
+  the 87% is not an efficiency question at all &mdash; it is a question about which products
+  the refinery chooses to make and sell. <strong>An inventory is therefore a strategy
+  document that happens to be expressed in tonnes.</strong></p></div>
+
+  <div class="folio"><span><b>Greenhouse Gas Inventory for a Refinery</b> &middot; Group C</span><span>Page 11</span></div>
+</section>
+
+</body></html>

@@ -73,3 +73,44 @@ markitdown dist/CDU-Integrity-Group-C.pptx      # text dump
 All content, geometry and colour live in `deck/build-deck.js`. Risk band labels
 are derived from the scores by one function, so a label cannot drift from its
 number.
+
+---
+
+# Second assignment — GHG inventory and GRI 11 ESG KPIs
+
+Two questions, each answered as a standalone brief with its own 5-slide deck.
+Built on the same reference refinery as the CDU case study above, viewed whole
+rather than unit by unit.
+
+| Deliverable | File |
+|---|---|
+| Q1 brief — GHG inventory (11pp) | `dist/GHG-Inventory-Refinery.pdf` |
+| Q1 deck — 5 slides | `dist/GHG-Inventory-Slides.pptx` / `.pdf` |
+| Q2 brief — GRI 11 ESG KPIs (13pp) | `dist/GRI-11-ESG-KPIs-Refinery.pdf` |
+| Q2 deck — 5 slides | `dist/GRI-11-ESG-KPIs-Slides.pptx` / `.pdf` |
+| Consistency record | `esg/CONSISTENCY.md` |
+
+Nigeria-first framing: the Climate Change Act 2021 s.24 reporting duty, NMDPRA,
+NESREA, NOSDRA, NGX, the FRC's adoption of IFRS S1/S2, NEITI and the Nigerian
+Content Act, with GHG Protocol, API, IPIECA and GRI as the supporting layer.
+
+**The headline of Q1:** Scope 1 and 2 together are 8.8% of the refinery's
+footprint. Category 11 — customers burning the fuel — is 87%.
+
+## Rebuilding
+
+```bash
+npm install pptxgenjs sharp
+node esg/build-pdfs.js                            # HTML -> A4 PDF via headless Chromium
+node esg/build-decks.js                           # both decks
+node esg/check-pages.js esg/content/<file>.html   # page-fit check, in millimetres
+```
+
+Documents are authored as HTML in `esg/content/` against `esg/theme.css`. Each
+page is a fixed-height A4 section, so pagination is composed rather than
+reflowed and no table ever splits across a page break. The trade-off is that
+overlong content is clipped rather than pushed, which is what `check-pages.js`
+exists to catch.
+
+Palette throughout is four colours only — navy `#0B2545`, light blue `#4C86C6`,
+black `#101418`, white — with tints of navy and light blue for fills.
